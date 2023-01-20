@@ -2,7 +2,7 @@ public class FilmManagRepo {
     private int lastFilms = 10;
     private repository repo;
 
-    public FilmManagRepo(int lastFilms, repository repo){
+    public FilmManagRepo(int lastFilms, repository repo) {
         this.lastFilms = lastFilms;
         this.repo = repo;
     }
@@ -24,7 +24,7 @@ public class FilmManagRepo {
         return all;
     }
 
-    public PurchaseItem[] findAll(){
+    public PurchaseItem[] findAll() {
         PurchaseItem[] all = repo.getItems();
         return all;
     }
@@ -33,7 +33,7 @@ public class FilmManagRepo {
         PurchaseItem[] all = repo.getItems();
         PurchaseItem[] reversed = new PurchaseItem[getLastFilms()];
         for (int i = 0; i < getLastFilms(); i++) {
-                reversed[i] = all[all.length - 1 - i];
+            reversed[i] = all[all.length - 1 - i];
         }
         return reversed;
     }

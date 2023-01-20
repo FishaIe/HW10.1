@@ -7,18 +7,18 @@ public class FilmManagRepoTest {
     repository repo = new repository();
     FilmManagRepo manager = new FilmManagRepo(repo);
 
-    PurchaseItem item1 =new PurchaseItem(1,"Бладшот", "Боевик");
-    PurchaseItem item2 =new PurchaseItem(2,"Фиксики", "Комедия");
-    PurchaseItem item3 =new PurchaseItem(3,"Чебурашка", "Комедия");
-    PurchaseItem item4 =new PurchaseItem(4,"Кровь", "Триллер");
-    PurchaseItem item5 =new PurchaseItem(5,"Астрал: Потоство", "Детектив");
-    PurchaseItem item6 =new PurchaseItem(6,"Мира", "Драма");
-    PurchaseItem item7 =new PurchaseItem(7,"Клипмейкеры", "Комедия");
-    PurchaseItem item8 =new PurchaseItem(8,"Верблюжья дуга", "Трагикомедия");
-    PurchaseItem item9 =new PurchaseItem(9,"13 изгнаний дьявола", "Ужасы");
-    PurchaseItem item10 =new PurchaseItem(10,"Турбозавры", "Мультипликация");
+    PurchaseItem item1 = new PurchaseItem(1, "Бладшот", "Боевик");
+    PurchaseItem item2 = new PurchaseItem(2, "Фиксики", "Комедия");
+    PurchaseItem item3 = new PurchaseItem(3, "Чебурашка", "Комедия");
+    PurchaseItem item4 = new PurchaseItem(4, "Кровь", "Триллер");
+    PurchaseItem item5 = new PurchaseItem(5, "Астрал: Потоство", "Детектив");
+    PurchaseItem item6 = new PurchaseItem(6, "Мира", "Драма");
+    PurchaseItem item7 = new PurchaseItem(7, "Клипмейкеры", "Комедия");
+    PurchaseItem item8 = new PurchaseItem(8, "Верблюжья дуга", "Трагикомедия");
+    PurchaseItem item9 = new PurchaseItem(9, "13 изгнаний дьявола", "Ужасы");
+    PurchaseItem item10 = new PurchaseItem(10, "Турбозавры", "Мультипликация");
 
-    PurchaseItem item11 =new PurchaseItem(11,"Бонус", "Пасхалка");
+    PurchaseItem item11 = new PurchaseItem(11, "Бонус", "Пасхалка");
 
 
     @BeforeEach
@@ -36,7 +36,7 @@ public class FilmManagRepoTest {
     }
 
     @Test
-    public void lastAddedFiveFilmsTest(){
+    public void lastAddedFiveFilmsTest() {
         FilmManagRepo film = new FilmManagRepo(5, repo);
 
 
@@ -47,7 +47,7 @@ public class FilmManagRepoTest {
     }
 
     @Test
-    public void findLastTest(){
+    public void findLastTest() {
         FilmManagRepo film = new FilmManagRepo(repo);
 
         PurchaseItem[] expected = {item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
@@ -57,7 +57,7 @@ public class FilmManagRepoTest {
     }
 
     @Test
-    public void addFilmToManager(){
+    public void addFilmToManager() {
 
         manager.add(item11);
 
