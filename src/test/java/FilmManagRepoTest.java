@@ -3,9 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FilmManagRepoTest {
-
-    repository repo = new repository();
-    FilmManagRepo manager = new FilmManagRepo(repo);
+    FilmManagRepo manager = new FilmManagRepo();
+    FilmManagRepo film = new FilmManagRepo(5);
 
     PurchaseItem item1 = new PurchaseItem(1, "Бладшот", "Боевик");
     PurchaseItem item2 = new PurchaseItem(2, "Фиксики", "Комедия");
@@ -23,22 +22,30 @@ public class FilmManagRepoTest {
 
     @BeforeEach
     public void setup() {
-        manager.add(item1);
-        manager.add(item2);
-        manager.add(item3);
-        manager.add(item4);
-        manager.add(item5);
-        manager.add(item6);
-        manager.add(item7);
-        manager.add(item8);
-        manager.add(item9);
-        manager.add(item10);
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.save(item6);
+        manager.save(item7);
+        manager.save(item8);
+        manager.save(item9);
+        manager.save(item10);
+        film.save(item1);
+        film.save(item2);
+        film.save(item3);
+        film.save(item4);
+        film.save(item5);
+        film.save(item6);
+        film.save(item7);
+        film.save(item8);
+        film.save(item9);
+        film.save(item10);
     }
 
     @Test
     public void lastAddedFiveFilmsTest() {
-        FilmManagRepo film = new FilmManagRepo(5, repo);
-
 
         PurchaseItem[] expected = {item10, item9, item8, item7, item6};
         PurchaseItem[] actual = film.findLast();
@@ -48,10 +55,9 @@ public class FilmManagRepoTest {
 
     @Test
     public void findLastTest() {
-        FilmManagRepo film = new FilmManagRepo(repo);
 
         PurchaseItem[] expected = {item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-        PurchaseItem[] actual = film.findLast();
+        PurchaseItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }

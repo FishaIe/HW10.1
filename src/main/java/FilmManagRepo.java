@@ -1,14 +1,26 @@
 public class FilmManagRepo {
     private int lastFilms = 10;
-    private repository repo;
+    private PurchaseItem[] items = new PurchaseItem[0];
 
-    public FilmManagRepo(int lastFilms, repository repo) {
-        this.lastFilms = lastFilms;
-        this.repo = repo;
+    public void save(PurchaseItem item) {
+        PurchaseItem[] tmp = new PurchaseItem[items.length + 1];
+        for (int i = 0; i < items.length; i++) {
+            tmp[i] = items[i];
+        }
+        tmp[tmp.length - 1] = item;
+        items = tmp;
     }
 
-    public FilmManagRepo(repository repo) {
-        this.repo = repo;
+    public FilmManagRepo(int lastFilms) {
+        this.lastFilms = lastFilms;
+    }
+
+    public PurchaseItem[] getItems() {
+        return items;
+    }
+
+    public FilmManagRepo() {
+
     }
 
     public int getLastFilms() {
@@ -16,21 +28,16 @@ public class FilmManagRepo {
     }
 
     public void add(PurchaseItem item) {
-        repo.save(item);
+        save(item);
     }
 
     public PurchaseItem[] getAllFilms() {
-        PurchaseItem[] all = repo.getItems();
-        return all;
-    }
-
-    public PurchaseItem[] findAll() {
-        PurchaseItem[] all = repo.getItems();
+        PurchaseItem[] all = getItems();
         return all;
     }
 
     public PurchaseItem[] findLast() {
-        PurchaseItem[] all = repo.getItems();
+        PurchaseItem[] all = getAllFilms();
         PurchaseItem[] reversed = new PurchaseItem[getLastFilms()];
         for (int i = 0; i < getLastFilms(); i++) {
             reversed[i] = all[all.length - 1 - i];
